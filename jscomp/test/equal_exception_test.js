@@ -160,7 +160,7 @@ function eq(x) {
   return x.RE_EXN_ID === "Not_found";
 }
 
-let Not_found = /* @__PURE__ */Caml_exceptions.create("Equal_exception_test.Not_found");
+let Not_found = /* @__PURE__ */Caml_exceptions.create("Equal_exception_test.NotFoundTest.Not_found");
 
 if (Caml_obj.equal(e, {
     RE_EXN_ID: Not_found
@@ -170,8 +170,8 @@ if (Caml_obj.equal(e, {
       RE_EXN_ID: "Assert_failure",
       _1: [
         "equal_exception_test.res",
-        50,
-        0
+        51,
+        2
       ]
     }
   });
@@ -183,12 +183,150 @@ if (Not_found === "Not_found" !== false) {
       RE_EXN_ID: "Assert_failure",
       _1: [
         "equal_exception_test.res",
-        51,
-        0
+        52,
+        2
       ]
     }
   });
 }
+
+let NotFoundTest = {
+  e: e,
+  eq: eq,
+  Not_found: Not_found
+};
+
+try {
+  (((() => {throw undefined})()));
+} catch (raw_a) {
+  let a = Caml_js_exceptions.internalToOCamlException(raw_a);
+  if (a.RE_EXN_ID === "Not_found") {
+    throw new Error("Assert_failure", {
+      cause: {
+        RE_EXN_ID: "Assert_failure",
+        _1: [
+          "equal_exception_test.res",
+          59,
+          17
+        ]
+      }
+    });
+  }
+  if (a.RE_EXN_ID === "JsError") {
+    if (a._1 !== undefined) {
+      throw new Error("Assert_failure", {
+        cause: {
+          RE_EXN_ID: "Assert_failure",
+          _1: [
+            "equal_exception_test.res",
+            60,
+            18
+          ]
+        }
+      });
+    }
+    
+  } else {
+    throw new Error(a.RE_EXN_ID, {
+      cause: a
+    });
+  }
+}
+
+try {
+  (((() => {throw undefined})()));
+} catch (raw_exn) {
+  let exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
+  if (exn.RE_EXN_ID === "Not_found") {
+    throw new Error("Assert_failure", {
+      cause: {
+        RE_EXN_ID: "Assert_failure",
+        _1: [
+          "equal_exception_test.res",
+          68,
+          19
+        ]
+      }
+    });
+  }
+  if (exn.RE_EXN_ID === "JsError") {
+    if (exn._1 !== undefined) {
+      throw new Error("Assert_failure", {
+        cause: {
+          RE_EXN_ID: "Assert_failure",
+          _1: [
+            "equal_exception_test.res",
+            69,
+            20
+          ]
+        }
+      });
+    }
+    
+  } else {
+    throw new Error(exn.RE_EXN_ID, {
+      cause: exn
+    });
+  }
+}
+
+let e_1 = undefined;
+
+let e$1 = {
+  RE_EXN_ID: "JsError",
+  _1: e_1
+};
+
+let JsErrorCopy = "JsError";
+
+function eq$1(x) {
+  if (x.RE_EXN_ID === "JsError") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+let JsError = /* @__PURE__ */Caml_exceptions.create("Equal_exception_test.JsErrorTest.JsError");
+
+if (Caml_obj.equal(e$1, {
+    RE_EXN_ID: JsError,
+    _1: undefined
+  }) !== false) {
+  throw new Error("Assert_failure", {
+    cause: {
+      RE_EXN_ID: "Assert_failure",
+      _1: [
+        "equal_exception_test.res",
+        83,
+        2
+      ]
+    }
+  });
+}
+
+if (eq$1({
+    RE_EXN_ID: JsError,
+    _1: undefined
+  }) !== false) {
+  throw new Error("Assert_failure", {
+    cause: {
+      RE_EXN_ID: "Assert_failure",
+      _1: [
+        "equal_exception_test.res",
+        84,
+        2
+      ]
+    }
+  });
+}
+
+let JsErrorTest = {
+  e: e$1,
+  JsErrorCopy: JsErrorCopy,
+  eq: eq$1,
+  JsError: JsError
+};
 
 Mt.from_suites("exception", suites);
 
@@ -198,7 +336,6 @@ exports.is_exception = is_exception;
 exports.is_normal_exception = is_normal_exception;
 exports.is_arbitrary_exception = is_arbitrary_exception;
 exports.suites = suites;
-exports.e = e;
-exports.eq = eq;
-exports.Not_found = Not_found;
+exports.NotFoundTest = NotFoundTest;
+exports.JsErrorTest = JsErrorTest;
 /*  Not a pure module */

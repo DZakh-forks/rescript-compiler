@@ -1,12 +1,12 @@
 let v = "gso"
 
 let is_equal = () => {
-  assert (Bytes.get(Bytes.make(3, 'a'), 0) == 'a')
-  assert (Bytes.unsafe_get(Bytes.make(3, 'a'), 0) == 'a')
+  assert(Bytes.get(Bytes.make(3, 'a'), 0) == 'a')
+  assert(Bytes.unsafe_get(Bytes.make(3, 'a'), 0) == 'a')
   let u = Bytes.make(3, 'a')
   Bytes.unsafe_set(u, 0, 'b')
-  assert (Bytes.unsafe_get(u, 0) == 'b')
-  assert (String.get(v, 0) == 'g')
+  assert(Bytes.unsafe_get(u, 0) == 'b')
+  assert(String.get(v, 0) == 'g')
 }
 
 let is_exception = () =>
@@ -40,14 +40,48 @@ let suites = list{
   ("is_arbitrary_exception", is_arbitrary_exception),
 }
 
-let e = Not_found
-let eq = x =>
-  switch x {
-  | Not_found => true
-  | _ => false
+module NotFoundTest = {
+  let e = Not_found
+  let eq = x =>
+    switch x {
+    | Not_found => true
+    | _ => false
+    }
+  exception Not_found
+  assert((e == Not_found) == false)
+  assert(eq(Not_found) == false)
+}
+
+module JsErrorTest = {
+  try {
+    %raw(`(() => {throw undefined})()`)
+  } catch {
+  | Not_found => assert(false)
+  | JsError(a) => assert(a === %raw(`undefined`))
   }
-exception Not_found
-assert ((e == Not_found) == false)
-assert (eq(Not_found) == false)
+
+  try {
+    %raw(`(() => {throw undefined})()`)
+  } catch {
+  | exn =>
+    switch exn {
+    | Not_found => assert(false)
+    | JsError(a) => assert(a === %raw(`undefined`))
+    | exn => raise(exn)
+    }
+  }
+
+  let e = JsError(%raw(`undefined`))
+  exception JsErrorCopy = JsError
+  let eq = x =>
+    switch x {
+    | JsError(_) => true
+    | JsErrorCopy(_) => false
+    | _ => false
+    }
+  exception JsError(unknown)
+  assert((e == JsError(%raw(`undefined`))) == false)
+  assert(eq(JsError(%raw(`undefined`))) == false)
+}
 
 Mt.from_suites("exception", suites)
