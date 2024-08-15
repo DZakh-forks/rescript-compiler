@@ -4,11 +4,9 @@
 let React = require("react");
 
 function dd() {
-  throw new Error("Not_found", {
-    cause: {
-      RE_EXN_ID: "Not_found"
-    }
-  });
+  throw {
+    RE_EXN_ID: "Not_found"
+  };
 }
 
 let h = sum(1.0, 2.0);

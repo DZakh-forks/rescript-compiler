@@ -94,16 +94,14 @@ try {
   if (x$3.RE_EXN_ID === A || x$3.RE_EXN_ID === Js_exn.$$Error) {
     a0 = x$3._1;
   } else {
-    throw new Error("Assert_failure", {
-      cause: {
-        RE_EXN_ID: "Assert_failure",
-        _1: [
-          "exception_raise_test.res",
-          104,
-          7
-        ]
-      }
-    });
+    throw {
+      RE_EXN_ID: "Assert_failure",
+      _1: [
+        "exception_raise_test.res",
+        104,
+        7
+      ]
+    };
   }
 }
 
@@ -156,16 +154,14 @@ let suites = {
               _1: 2
             };
           }
-          throw new Error("Assert_failure", {
-            cause: {
-              RE_EXN_ID: "Assert_failure",
-              _1: [
-                "exception_raise_test.res",
-                127,
-                15
-              ]
-            }
-          });
+          throw {
+            RE_EXN_ID: "Assert_failure",
+            _1: [
+              "exception_raise_test.res",
+              127,
+              15
+            ]
+          };
         })
       ],
       tl: /* [] */0
@@ -189,11 +185,9 @@ try {
 }
 
 try {
-  throw new Error("Not_found", {
-    cause: {
-      RE_EXN_ID: "Not_found"
-    }
-  });
+  throw {
+    RE_EXN_ID: "Not_found"
+  };
 } catch (raw_e$3) {
   let e$1 = Caml_js_exceptions.internalToOCamlException(raw_e$3);
   eq("File \"exception_raise_test.res\", line 141, characters 10-17", Caml_js_exceptions.as_js_exn(e$1) !== undefined, false);

@@ -67,16 +67,14 @@ let tmp;
 if (A0 === A0) {
   tmp = 3;
 } else {
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "inline_record_test.res",
-        47,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "inline_record_test.res",
+      47,
+      9
+    ]
+  };
 }
 
 eq("File \"inline_record_test.res\", line 44, characters 2-9", tmp, 3);
@@ -111,16 +109,14 @@ let tmp$1;
 if (v4.TAG === "A0") {
   tmp$1 = v4.x;
 } else {
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "inline_record_test.res",
-        74,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "inline_record_test.res",
+      74,
+      9
+    ]
+  };
 }
 
 eq("File \"inline_record_test.res\", line 71, characters 2-9", tmp$1, 11);
@@ -128,16 +124,14 @@ eq("File \"inline_record_test.res\", line 71, characters 2-9", tmp$1, 11);
 let tmp$2;
 
 if (v5.TAG === "A0") {
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "inline_record_test.res",
-        83,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "inline_record_test.res",
+      83,
+      9
+    ]
+  };
 }
 
 tmp$2 = v5.z;
@@ -171,16 +165,14 @@ let tmp$3;
 if (v6.RE_EXN_ID === A4) {
   tmp$3 = v6.x;
 } else {
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "inline_record_test.res",
-        108,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "inline_record_test.res",
+      108,
+      9
+    ]
+  };
 }
 
 eq("File \"inline_record_test.res\", line 105, characters 2-9", tmp$3, 11);

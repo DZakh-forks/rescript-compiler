@@ -497,12 +497,10 @@ function get_exn(e) {
   if (e !== undefined) {
     return Caml_option.valFromOption(e);
   }
-  throw new Error("Failure", {
-    cause: {
-      RE_EXN_ID: "Failure",
-      _1: "CCSexp.Traverse.get_exn"
-    }
-  });
+  throw {
+    RE_EXN_ID: "Failure",
+    _1: "CCSexp.Traverse.get_exn"
+  };
 }
 
 let of_unit = {

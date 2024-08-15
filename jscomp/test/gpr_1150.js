@@ -215,16 +215,14 @@ function f(children) {
     ];
   }
   if (children$15.tl) {
-    throw new Error("Assert_failure", {
-      cause: {
-        RE_EXN_ID: "Assert_failure",
-        _1: [
-          "gpr_1150.res",
-          100,
-          62
-        ]
-      }
-    });
+    throw {
+      RE_EXN_ID: "Assert_failure",
+      _1: [
+        "gpr_1150.res",
+        100,
+        62
+      ]
+    };
   }
   return [
     a0,

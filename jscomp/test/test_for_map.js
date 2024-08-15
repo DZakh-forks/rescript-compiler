@@ -43,12 +43,10 @@ function bal(l, x, d, r) {
   hr = typeof r !== "object" ? 0 : r.h;
   if (hl > (hr + 2 | 0)) {
     if (typeof l !== "object") {
-      throw new Error("Invalid_argument", {
-        cause: {
-          RE_EXN_ID: "Invalid_argument",
-          _1: "Map.bal"
-        }
-      });
+      throw {
+        RE_EXN_ID: "Invalid_argument",
+        _1: "Map.bal"
+      };
     }
     let lr = l.r;
     let ld = l.d;
@@ -60,12 +58,10 @@ function bal(l, x, d, r) {
     if (typeof lr === "object") {
       return create(create(ll, lv, ld, lr.l), lr.v, lr.d, create(lr.r, x, d, r));
     }
-    throw new Error("Invalid_argument", {
-      cause: {
-        RE_EXN_ID: "Invalid_argument",
-        _1: "Map.bal"
-      }
-    });
+    throw {
+      RE_EXN_ID: "Invalid_argument",
+      _1: "Map.bal"
+    };
   }
   if (hr <= (hl + 2 | 0)) {
     return {
@@ -78,12 +74,10 @@ function bal(l, x, d, r) {
     };
   }
   if (typeof r !== "object") {
-    throw new Error("Invalid_argument", {
-      cause: {
-        RE_EXN_ID: "Invalid_argument",
-        _1: "Map.bal"
-      }
-    });
+    throw {
+      RE_EXN_ID: "Invalid_argument",
+      _1: "Map.bal"
+    };
   }
   let rr = r.r;
   let rd = r.d;
@@ -95,12 +89,10 @@ function bal(l, x, d, r) {
   if (typeof rl === "object") {
     return create(create(l, x, d, rl.l), rl.v, rl.d, create(rl.r, rv, rd, rr));
   }
-  throw new Error("Invalid_argument", {
-    cause: {
-      RE_EXN_ID: "Invalid_argument",
-      _1: "Map.bal"
-    }
-  });
+  throw {
+    RE_EXN_ID: "Invalid_argument",
+    _1: "Map.bal"
+  };
 }
 
 function is_empty(param) {
@@ -161,11 +153,9 @@ function find(x, _param) {
   while (true) {
     let param = _param;
     if (typeof param !== "object") {
-      throw new Error("Not_found", {
-        cause: {
-          RE_EXN_ID: "Not_found"
-        }
-      });
+      throw {
+        RE_EXN_ID: "Not_found"
+      };
     }
     let c = Caml.int_compare(x, param.v);
     if (c === 0) {
@@ -180,11 +170,9 @@ function find_first(f, _param) {
   while (true) {
     let param = _param;
     if (typeof param !== "object") {
-      throw new Error("Not_found", {
-        cause: {
-          RE_EXN_ID: "Not_found"
-        }
-      });
+      throw {
+        RE_EXN_ID: "Not_found"
+      };
     }
     let v = param.v;
     if (f(v)) {
@@ -258,11 +246,9 @@ function find_last(f, _param) {
   while (true) {
     let param = _param;
     if (typeof param !== "object") {
-      throw new Error("Not_found", {
-        cause: {
-          RE_EXN_ID: "Not_found"
-        }
-      });
+      throw {
+        RE_EXN_ID: "Not_found"
+      };
     }
     let v = param.v;
     if (f(v)) {
@@ -366,11 +352,9 @@ function min_binding(_param) {
   while (true) {
     let param = _param;
     if (typeof param !== "object") {
-      throw new Error("Not_found", {
-        cause: {
-          RE_EXN_ID: "Not_found"
-        }
-      });
+      throw {
+        RE_EXN_ID: "Not_found"
+      };
     }
     let l = param.l;
     if (typeof l !== "object") {
@@ -406,11 +390,9 @@ function max_binding(_param) {
   while (true) {
     let param = _param;
     if (typeof param !== "object") {
-      throw new Error("Not_found", {
-        cause: {
-          RE_EXN_ID: "Not_found"
-        }
-      });
+      throw {
+        RE_EXN_ID: "Not_found"
+      };
     }
     let r = param.r;
     if (typeof r !== "object") {
@@ -444,12 +426,10 @@ function max_binding_opt(_param) {
 
 function remove_min_binding(param) {
   if (typeof param !== "object") {
-    throw new Error("Invalid_argument", {
-      cause: {
-        RE_EXN_ID: "Invalid_argument",
-        _1: "Map.remove_min_elt"
-      }
-    });
+    throw {
+      RE_EXN_ID: "Invalid_argument",
+      _1: "Map.remove_min_elt"
+    };
   }
   let l = param.l;
   if (typeof l !== "object") {
@@ -753,16 +733,14 @@ function merge$1(f, s1, s2) {
     
   }
   if (typeof s2 !== "object") {
-    throw new Error("Assert_failure", {
-      cause: {
-        RE_EXN_ID: "Assert_failure",
-        _1: [
-          "map.res",
-          552,
-          11
-        ]
-      }
-    });
+    throw {
+      RE_EXN_ID: "Assert_failure",
+      _1: [
+        "map.res",
+        552,
+        11
+      ]
+    };
   }
   let v2 = s2.v;
   let match$1 = split(v2, s1);

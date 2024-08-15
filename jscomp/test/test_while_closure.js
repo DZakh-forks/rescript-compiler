@@ -32,16 +32,14 @@ $$Array.iter((function (x) {
 console.log(String(v.contents));
 
 if (v.contents !== 45) {
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "test_while_closure.res",
-        55,
-        2
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "test_while_closure.res",
+      55,
+      2
+    ]
+  };
 }
 
 let count = 10;

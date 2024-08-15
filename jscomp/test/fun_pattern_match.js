@@ -22,16 +22,14 @@ function f3(param, param$1) {
     }
     rhs === "Uninitialized";
   }
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "fun_pattern_match.res",
-        33,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "fun_pattern_match.res",
+      33,
+      9
+    ]
+  };
 }
 
 function f4(param, param$1) {
@@ -45,16 +43,14 @@ function f4(param, param$1) {
     }
     rhs === "Uninitialized";
   }
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "fun_pattern_match.res",
-        39,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "fun_pattern_match.res",
+      39,
+      9
+    ]
+  };
 }
 
 let x = {

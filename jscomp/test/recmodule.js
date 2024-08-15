@@ -40,16 +40,14 @@ let Adapter = {
 
 function MakeLayer$2(Deps) {
   let presentJson = function (json, status) {
-    throw new Error("Assert_failure", {
-      cause: {
-        RE_EXN_ID: "Assert_failure",
-        _1: [
-          "recmodule.res",
-          60,
-          41
-        ]
-      }
-    });
+    throw {
+      RE_EXN_ID: "Assert_failure",
+      _1: [
+        "recmodule.res",
+        60,
+        41
+      ]
+    };
   };
   let routes = function () {
     return [[
@@ -116,16 +114,14 @@ let U = Caml_module.init_mod([
 });
 
 function presentJson(json, status) {
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "recmodule.res",
-        60,
-        41
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "recmodule.res",
+      60,
+      41
+    ]
+  };
 }
 
 function routes() {

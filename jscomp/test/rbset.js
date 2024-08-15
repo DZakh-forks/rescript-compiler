@@ -265,16 +265,14 @@ function unbalanced_left(x) {
       
     }
   }
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "rbset.res",
-        64,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "rbset.res",
+      64,
+      9
+    ]
+  };
 }
 
 function unbalanced_right(x) {
@@ -335,16 +333,14 @@ function unbalanced_right(x) {
       
     }
   }
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "rbset.res",
-        75,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "rbset.res",
+      75,
+      9
+    ]
+  };
 }
 
 function lbalance(x1, x2, x3) {
@@ -560,16 +556,14 @@ function add(x, s) {
 
 function remove_min(x) {
   if (typeof x !== "object") {
-    throw new Error("Assert_failure", {
-      cause: {
-        RE_EXN_ID: "Assert_failure",
-        _1: [
-          "rbset.res",
-          138,
-          4
-        ]
-      }
-    });
+    throw {
+      RE_EXN_ID: "Assert_failure",
+      _1: [
+        "rbset.res",
+        138,
+        4
+      ]
+    };
   }
   let c = x._0;
   if (c === "Black") {
@@ -597,16 +591,14 @@ function remove_min(x) {
           false
         ];
       }
-      throw new Error("Assert_failure", {
-        cause: {
-          RE_EXN_ID: "Assert_failure",
-          _1: [
-            "rbset.res",
-            138,
-            4
-          ]
-        }
-      });
+      throw {
+        RE_EXN_ID: "Assert_failure",
+        _1: [
+          "rbset.res",
+          138,
+          4
+        ]
+      };
     }
     
   } else {

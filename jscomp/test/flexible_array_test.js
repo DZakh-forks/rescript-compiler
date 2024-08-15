@@ -10,11 +10,9 @@ function sub(_tr, _k) {
     let k = _k;
     let tr = _tr;
     if (typeof tr !== "object") {
-      throw new Error("Not_found", {
-        cause: {
-          RE_EXN_ID: "Not_found"
-        }
-      });
+      throw {
+        RE_EXN_ID: "Not_found"
+      };
     }
     if (k === 1) {
       return tr._0;
@@ -40,11 +38,9 @@ function update(tr, k, w) {
         _2: "Lf"
       };
     }
-    throw new Error("Not_found", {
-      cause: {
-        RE_EXN_ID: "Not_found"
-      }
-    });
+    throw {
+      RE_EXN_ID: "Not_found"
+    };
   }
   let r = tr._2;
   let l = tr._1;
@@ -76,11 +72,9 @@ function update(tr, k, w) {
 
 function $$delete(tr, n) {
   if (typeof tr !== "object") {
-    throw new Error("Not_found", {
-      cause: {
-        RE_EXN_ID: "Not_found"
-      }
-    });
+    throw {
+      RE_EXN_ID: "Not_found"
+    };
   }
   if (n === 1) {
     return "Lf";
@@ -125,11 +119,9 @@ function loext(tr, w) {
 
 function lorem(tr) {
   if (typeof tr !== "object") {
-    throw new Error("Not_found", {
-      cause: {
-        RE_EXN_ID: "Not_found"
-      }
-    });
+    throw {
+      RE_EXN_ID: "Not_found"
+    };
   }
   let l = tr._1;
   if (typeof l === "object") {
@@ -144,16 +136,14 @@ function lorem(tr) {
   if (typeof tmp !== "object") {
     return "Lf";
   }
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "flexible_array_test.res",
-        80,
-        9
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "flexible_array_test.res",
+      80,
+      9
+    ]
+  };
 }
 
 let empty = [
@@ -169,12 +159,10 @@ function get(param, i) {
   if (i >= 0 && i < param[1]) {
     return sub(param[0], i + 1 | 0);
   }
-  throw new Error("Invalid_argument", {
-    cause: {
-      RE_EXN_ID: "Invalid_argument",
-      _1: "Array.get"
-    }
-  });
+  throw {
+    RE_EXN_ID: "Invalid_argument",
+    _1: "Array.get"
+  };
 }
 
 function set(param, i, v) {
@@ -185,12 +173,10 @@ function set(param, i, v) {
       k
     ];
   }
-  throw new Error("Invalid_argument", {
-    cause: {
-      RE_EXN_ID: "Invalid_argument",
-      _1: "Array.set"
-    }
-  });
+  throw {
+    RE_EXN_ID: "Invalid_argument",
+    _1: "Array.set"
+  };
 }
 
 function push_front(param, v) {
@@ -208,12 +194,10 @@ function pop_front(param) {
       k - 1 | 0
     ];
   }
-  throw new Error("Invalid_argument", {
-    cause: {
-      RE_EXN_ID: "Invalid_argument",
-      _1: "Array.pop_front"
-    }
-  });
+  throw {
+    RE_EXN_ID: "Invalid_argument",
+    _1: "Array.pop_front"
+  };
 }
 
 function push_back(param, v) {
@@ -232,12 +216,10 @@ function pop_back(param) {
       k - 1 | 0
     ];
   }
-  throw new Error("Invalid_argument", {
-    cause: {
-      RE_EXN_ID: "Invalid_argument",
-      _1: "Array.pop_back"
-    }
-  });
+  throw {
+    RE_EXN_ID: "Invalid_argument",
+    _1: "Array.pop_back"
+  };
 }
 
 function filter_from(i, p, s) {
@@ -323,16 +305,14 @@ if (!$eq$tilde(sort(u), [
     5,
     6
   ])) {
-  throw new Error("Assert_failure", {
-    cause: {
-      RE_EXN_ID: "Assert_failure",
-      _1: [
-        "flexible_array_test.res",
-        184,
-        2
-      ]
-    }
-  });
+  throw {
+    RE_EXN_ID: "Assert_failure",
+    _1: [
+      "flexible_array_test.res",
+      184,
+      2
+    ]
+  };
 }
 
 let v = $$Array.init(500, (function (i) {

@@ -21,16 +21,14 @@ for (let i = 1; i <= 2; ++i) {
     if (i === n) {
       return;
     }
-    throw new Error("Assert_failure", {
-      cause: {
-        RE_EXN_ID: "Assert_failure",
-        _1: [
-          "gpr_858_unit2_test.res",
-          6,
-          13
-        ]
-      }
-    });
+    throw {
+      RE_EXN_ID: "Assert_failure",
+      _1: [
+        "gpr_858_unit2_test.res",
+        6,
+        13
+      ]
+    };
   };
   f(0, i);
 }
