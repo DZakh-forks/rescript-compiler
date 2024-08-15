@@ -24,6 +24,16 @@
 
 exception Error = JsError
 type js_error = {cause: exn}
+
+%%raw(`class RescriptError extends Error {}`)
+
+let internalMakeExn = (exnId: string, payload: 'a): exn => {
+  let error = %raw(`new RescriptError(exnId)`)
+  error["_1"] = payload
+  error["RE_EXN_ID"] = exnId
+  error->Obj.magic
+}
+
 /**   
    This function has to be in this module Since 
    [Error] is defined here 
